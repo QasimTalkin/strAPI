@@ -12,9 +12,9 @@ class:
 # Strapi 
 
 # What is Strapi?
-Strapi is a free and open-source content management system, it is a headless CMS that allows you to create a website taking care of backend and give us control over the frontend.
-Strapi provides restful API for your website.
-we can use fetch/axio to fetch data from Strapi.
+* Strapi is a free and open-source content management system, it is a headless CMS that allows you to create a website taking care of backend and give us control over the frontend.
+* Strapi provides restful API for your website.
+* we can use fetch/axio to fetch data from Strapi.
 
 # Install Strapi
 * `npx` stands for node package execute, an npm package runner that can execute packages installed with npm.
