@@ -182,4 +182,48 @@ return (
 ```
 
 # using appolo client in react 
-* `import { useQuery, gql } from '@apollo/client';` // useQuery is a hook that allows us to use graphql in react
+* `import { useQuery, gql } from '@apollo/client';` // useQuery is a hook that allows us to use graphql in react 
+* gql request
+```js
+import { useQuery, gql } from '@apollo/client';
+const FEEDBACKS_QUERY = gql`
+  query {
+    feedbacks {
+      id
+      title
+      body
+    }
+  }
+`;
+const { loading, error, data } = useQuery(FEEDBACKS_QUERY);
+```
+
+# requesting specific feedback
+```js
+const FEEDBACK_QUERY = gql
+  query Feedback($id: ID!) {
+    feedback(id: $id) {
+      id
+      title
+      body
+    }
+  }
+;
+const { loading, error, data } = useQuery(FEEDBACK_QUERY, {
+  variables: { id },
+});
+```
+# Relational data!
+* relational data is data that is related to another data
+* we will related feedback to courses 
+
+# types of relations
+* one to one![bg left vertical 80% margin 70%](one%20to%20one.png)
+* one to one bidirectional  ![bg 70%](one%20to%20one%20bidirectional.png)
+* one to many ![bg 70%](one%20to%20many.png)
+* many to one ![bg 70%](many%20to%20one.png)
+* many to many ![bg 70%](many%20to%20many.png)
+* one has many ![bg 70%](one%20has%20many%20through.png)
+
+# Getting courses data
+* add courses on site header
