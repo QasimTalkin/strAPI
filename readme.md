@@ -82,6 +82,7 @@ export default function App() {
 }
 ```
 # fetch and render data
+<style scoped> {font-Size:1.4em} </style>
 * fetch data from strapi using end point `/feedbacks`
 ```js
 export default function Feedbacks() {
@@ -108,6 +109,7 @@ export default function Feedbacks() {
 ```
 
 # specific feedback using useParams
+<style scoped> {font-Size:1.7em} </style>
 * useParams is a hook that allows us to get the id from the url
 `const { id } = useParams();` // id is the id from the url
 ```js
@@ -129,6 +131,7 @@ export default function Feedback() {
 ```
 
 # Graphql 
+<style scoped> {font-Size:1.8em} </style>
 * graphql is a query language for api
 * its different from rest api because it allows us to get specific data from the api
 * sample graphql user data query vs get all users
@@ -157,6 +160,7 @@ query {
   * `ApolloProvider` is a provider that allows us to use graphql in react
 
 # adding Appolo to our react app
+<style scoped> {font-Size:1.4em} </style>
 * `uri: 'http://localhost:1337/graphql',` // graphql endpoint
 * `cache: new InMemoryCache(),` // cache
 * `ApolloProvider` // to provide graphql to react
@@ -225,5 +229,14 @@ const { loading, error, data } = useQuery(FEEDBACK_QUERY, {
 * many to many ![bg 70%](many%20to%20many.png)
 * one has many ![bg 70%](one%20has%20many%20through.png)
 
+<<<<<<< HEAD:readme.md
 # Getting courses data
 * add courses on site header
+=======
+# react markdown for styles
+* `npm i react-markdown` // to render markdown in react
+```js
+import ReactMarkdown from 'react-markdown';
+<ReactMarkdown>{feedback.body}</ReactMarkdown>
+```
+>>>>>>> main:redme.md
