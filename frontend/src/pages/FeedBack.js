@@ -2,6 +2,7 @@ import React from 'react';
 import {useParams} from 'react-router-dom';
 import useFetch from '../hooks/useFetch';
 import { useQuery, gql } from '@apollo/client';
+import ReactMarkdown from 'react-markdown';
 export default function FeedBack() {
   const {id} = useParams();
   const FEEDBACK_QUERY = gql`
@@ -29,7 +30,7 @@ export default function FeedBack() {
         <h2>{feedback.Title}</h2>
         <div className='feedback-rating'>{feedback.Rating}</div> 
         <small>course list</small>
-        <p>{feedback.Body}</p>
+        <ReactMarkdown>{feedback.Body}</ReactMarkdown>
       </div>
     </>
   );

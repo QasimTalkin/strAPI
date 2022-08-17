@@ -1,7 +1,7 @@
 import React from 'react';
 import {useParams, Link} from 'react-router-dom';
 import { useQuery, gql } from '@apollo/client';
-
+import ReactMarkdown from 'react-markdown';
 
 
 
