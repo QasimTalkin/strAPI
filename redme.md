@@ -127,3 +127,103 @@ export default function Feedback() {
   );
 }
 ```
+
+# Graphql 
+* graphql is a query language for api
+* its different from rest api because it allows us to get specific data from the api
+* sample graphql user data query vs get all users
+```js
+// graphql
+query {
+  users {
+    id
+    username
+    email
+  }
+} // get all users and returns only id, username and email
+// rest api
+/users // get all users and returns all data
+```
+# Installing graphql for strapi
+* on admin panel go to
+* marketplace -> graphql or `npm i strapi-plugin-graphql`
+
+# Setting up react to use graphql
+* `npm i @apollo/client graphql` appolo client will help us to use graphql in react
+* add appolo to app.js and create connection to graphql
+* `import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';`
+  * `ApploClient` creates a new connection to graphql server
+  * `InMemoryCache` is a cache that stores data from graphql server
+  * `ApolloProvider` is a provider that allows us to use graphql in react
+
+# adding Appolo to our react app
+* `uri: 'http://localhost:1337/graphql',` // graphql endpoint
+* `cache: new InMemoryCache(),` // cache
+* `ApolloProvider` // to provide graphql to react
+```js
+import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
+
+const client = new ApolloClient({
+  uri: 'http://localhost:1337/graphql',
+  cache: new InMemoryCache(),
+});
+return (
+  <ApolloProvider client={client}> // client connection now provided to entire app
+    <Router>
+      <Switch>
+        <Route path="/feedbacks/:id">
+          <Feedback />
+        </Route>
+        ...
+      </Switch>
+    </Router>
+  </ApolloProvider>
+);
+```
+
+# using appolo client in react 
+* `import { useQuery, gql } from '@apollo/client';` // useQuery is a hook that allows us to use graphql in react 
+* gql request
+```js
+import { useQuery, gql } from '@apollo/client';
+const FEEDBACKS_QUERY = gql`
+  query {
+    feedbacks {
+      id
+      title
+      body
+    }
+  }
+`;
+const { loading, error, data } = useQuery(FEEDBACKS_QUERY);
+```
+
+# requesting specific feedback
+```js
+const FEEDBACK_QUERY = gql
+  query Feedback($id: ID!) {
+    feedback(id: $id) {
+      id
+      title
+      body
+    }
+  }
+;
+const { loading, error, data } = useQuery(FEEDBACK_QUERY, {
+  variables: { id },
+});
+```
+# Relational data!
+* relational data is data that is related to another data
+* we will related feedback to courses 
+
+# types of relations
+* one to one![bg left vertical 80% margin 70%](one%20to%20one.png)
+* one to one bidirectional  ![bg 70%](one%20to%20one%20bidirectional.png)
+* one to many ![bg 70%](one%20to%20many.png)
+* many to one ![bg 70%](many%20to%20one.png)
+* many to many ![bg 70%](many%20to%20many.png)
+* one has many ![bg 70%](one%20has%20many%20through.png)
+
+# Getting courses data
+* add courses on site header
