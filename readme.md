@@ -229,14 +229,13 @@ const { loading, error, data } = useQuery(FEEDBACK_QUERY, {
 * many to many ![bg 70%](many%20to%20many.png)
 * one has many ![bg 70%](one%20has%20many%20through.png)
 
-<<<<<<< HEAD:readme.md
 # Getting courses data
 * add courses on site header
-=======
+
 # react markdown for styles
 * `npm i react-markdown` // to render markdown in react
 ```js
 import ReactMarkdown from 'react-markdown';
 <ReactMarkdown>{feedback.body}</ReactMarkdown>
 ```
->>>>>>> main:redme.md
+
