@@ -54,4 +54,76 @@ npx create-strapi-app course-feedback
 # Creating react front end
 * add react project `npx create-react-app frontend`     
 * add router `npm i react-router-dom`
-* 
+
+# run frontend and backend
+* `npm run develop` in backend
+* `npm start` in frontend
+* should start strapi and react
+* strapi on `http://localhost:1337/`
+* react on `http://localhost:3000/`
+
+# React 
+* build routes for frontend
+```js
+import Feedbacks from './pages/Feedbacks';
+export default function App() {
+  return (
+    <Router>
+      <Switch>
+        <Route path="/feedbacks">
+          <Feedbacks />
+        </Route>
+        <Route path="/">
+          <Home />
+        </Route>
+      </Switch>
+    </Router>
+  );
+}
+```
+# fetch and render data
+* fetch data from strapi using end point `/feedbacks`
+```js
+export default function Feedbacks() {
+  const [feedbacks, setFeedbacks] = useState([]);
+  useEffect(() => {
+    axios.get('http://localhost:1337/feedbacks').then((res) => {
+      setFeedbacks(res.data);
+    });
+  }, []);
+  return (
+    <div>
+      <h1>Feedbacks</h1>
+      {feedbacks.map((feedback) => (
+        <div key={feedback.id}>
+          <Link to={`/feedbacks/${feedback.id}`}>
+            <h2>{feedback.title}</h2>
+          </Link>
+          <p>{feedback.body}</p>
+        </div>
+      ))}
+    </div>
+  );
+}
+```
+
+# specific feedback using useParams
+* useParams is a hook that allows us to get the id from the url
+`const { id } = useParams();` // id is the id from the url
+```js
+export default function Feedback() {
+  const { id } = useParams();
+  const [feedback, setFeedback] = useState({});
+  useEffect(() => {
+    axios.get(`http://localhost:1337/feedbacks/${id}`).then((res) => {
+      setFeedback(res.data);
+    });
+  }, [id]);
+  return (
+    <div>
+      <h1>{feedback.title}</h1>
+      <p>{feedback.body}</p>
+    </div>
+  );
+}
+```
