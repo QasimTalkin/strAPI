@@ -50,3 +50,8 @@ npx create-strapi-app course-feedback
 * the api route will be /api/feedback and the endpoint will be /feedback
 * the endpoint will be stored in folder /src/api/feedback
 * the schema for the endpoint will be stored in folder /src/content-types/feedback/schema.json
+
+# Creating react front end
+* add react project `npx create-react-app frontend`     
+* add router `npm i react-router-dom`
+* 

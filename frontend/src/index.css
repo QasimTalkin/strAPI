@@ -1,0 +1,77 @@
+/* import google roboto fonts */
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap');
+/* declare css color pallet variables */
+:root {
+  --color-primary: #bc6c25;
+  --color-secondary: #dda15e;
+  --color-background: #fefae0;
+  --color-rating: #f5c518;
+}
+
+body{
+  margin:0 30px;
+  font-family: 'Roboto', sans-serif;
+  background-color: --color-background;
+}
+
+h1,h2,h3,h4 {
+  font-weight: 500;
+}
+
+.App {
+  font-size:1.2em;
+  margin: 10px auto;
+  width: 1200px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-primary);
+  border-bottom: 2px dotted;
+}
+
+.site-header {
+  font-size: 1.5em;
+  color: var(--color-primary);
+  padding-bottom: 10px;
+  border-bottom: 0.25px solid var(--color-secondary);
+}
+
+/* feedback card styles */
+.feedback-card {
+  background-color: var(--color-background);
+  margin:60px auto;
+  padding: 1px 20px 20px 90px;
+  position:relative;
+}
+.feedback-rating {
+  position:absolute;
+  top:-20px;
+  left:-20px;
+  width: 90px;
+  height: 90px;
+  border-radius: 5%;
+  background-color: var(--color-rating);
+  color: var(--color-background);
+  font-size: 1.8em;
+  font-weight: 800;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.feedback-card p {
+  font-size: 1.2em;
+  font-weight: 300;
+  margin: 10px 0;
+}
+.feedback-card small {
+margin-right: 10px;
+color:burlywood
+}
+.feedback-card h2{
+  font-size: 1.5em;
+  font-weight: 500;
+  margin: 10px 0;
+}
